@@ -1,17 +1,34 @@
 package ru.gb.lind.hm6;
 
-public class Cat extends Animals {
+public class Cat extends Animal {
+
+    private static final int RUN_LIMIT = 200;
+    private static final int SWIM_LIMIT = 0;
+    private static int count;
+
+
     public Cat(String name) {
-        super(name);
-        this.limitRun = random.nextInt(50) + 150;
-        this.limitJump = Math.random() * 1.5 + 0.5;
-        this.animal = "Кот";
+        super(name, RUN_LIMIT, SWIM_LIMIT);
+        count++;
+
+    }
+
+
+
+    @Override
+    public void swim(int length) {
+        System.out.println("Кот умеет плавать, но не хочет!");
+    }
+
+    public static int getCount() {
+        return count;
     }
 
     @Override
-    public void swim(int dist) {
-        System.out.println("Коты не любят плавать");
+    public String toString() {
+
+        return "Кот по имени " + getName();
+
     }
 }
-
 
